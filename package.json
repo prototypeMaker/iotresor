@@ -1,13 +1,21 @@
 {
   "name": "tresor-website",
   "version": "1.0.0",
-  "description": "website for tresor llc",
-  "main": "index.js",
+  "description": "a website for Tresor LLC",
+  "main": "entry.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tresor-llc/tresor-website.git"
+  },
+  "author": "kamto",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tresor-llc/tresor-website/issues"
+  },
+  "homepage": "https://github.com/tresor-llc/tresor-website#readme",
   "dependencies": {
     "express": "^4.17.1"
   }

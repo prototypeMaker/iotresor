@@ -10,19 +10,22 @@ var logger = (res, req, next) => {
 }
 
 
-app.init = function () {
-    app.use(logger); //Logs pings
-    app.use(Express.static('/public'));
+
+module.exports = {
+
+    init() {
+        app.use(logger); //Logs pings
+        app.use(Express.static('./public'));
+        console.log("Finished initializing")
+    },
+
+    start(port) {
+        //Server side Rendering
+        app.use("/", (req, res, next) => {
+            //Serves empty html file
+            res.sendFile(path.join(__dirname, './public', 'index.html'))
+        })
+        app.listen(port, () => {console.log("Serving index.html")})
+    }
+
 }
-
-
-app.start = () => {
-    //Server side Rendering
-    app.use("/", (req, res, next) => {
-        //Serves empty html file
-        res.sendFile(path.join(__dirname, '../public', 'index.html'))
-    })
-}
-
-
-module.exports

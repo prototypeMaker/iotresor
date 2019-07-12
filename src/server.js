@@ -2,31 +2,31 @@
 const Express = require('express');
 const app = new Express();
 const path = require('path');
+const logger = require('morgan')
 
+function init() {
+    publicPath = path.join(__dirname, "..", "public");
+    assetsPath = path.join(__dirname, "..", "assets");
 
-var logger = (res, req, next) => {
-    console.log(`Pinged at ${Date.now()}`)
-    next()
+    // log requests
+    app.use(logger('dev'));
+
+    // set static options
+    app.use(Express.static(publicPath));
 }
 
+function start(port) {
 
+    // 
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(publicPath, "index.html"))
+    })
 
-module.exports = {
-
-    init() {
-        app.use(logger); //Logs pings
-        console.log("Finished initializing")
-    },
-    
-    start(port) {
-        //Server side Rendering
-        // app.use("../public", Express.static(__dirname + "."));
-        app.get("/", (req, res, next) => {
-            //Serves empty html file
-            // res.sendFile("/public/index.html")
-            res.sendFile(path.join(__dirname, '~/', 'index.html'))
-        })
-        app.listen(port, () => {console.log("Serving index.html")})
-    }
-
+    // Listens on a port
+    port = process.env.PORT || `3000`;
+    app.listen(port);
 }
+
+// 
+init()
+start()

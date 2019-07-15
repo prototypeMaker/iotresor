@@ -25,6 +25,7 @@ function start(port) {
     // Listens on a port
     port = process.env.PORT || `3000`;
     app.listen(port);
+    console.log(`running on localhost:${port}`)
 }
 
 // 

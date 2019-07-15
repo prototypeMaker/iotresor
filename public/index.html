@@ -66,14 +66,15 @@
 				<h2 class="major">Testimonials</h2>
 				<!-- <span class="image main"><img src="../assets/images/particles.png" alt="" /></span> -->
 				<!-- <p>Here are businesses we've worked with</p> -->
-				<p>We've supported and enabled the growth of these fine companies</p>
+				<p>We've supported these fine companies</p>
+				<a href="https://hempireinnovations.com"><img src="../assets/images/clients/icon2.png" style="width: 190px; height: 190px;" /></a>
 			</article>
 
 			<!-- About -->
 			<article id="about">
 				<h2 class="major">About</h2>
 				<!-- <span class="image main"><img src="../assets/images/pic03.jpg" alt="" /></span> -->
-				<p>We are a results oriented cult. No outsiders, no flakers, just commitment and results.</p>
+				<p>We are a results oriented cult. No outsiders, no flakers, just results.</p>
 			</article>
 
 			<!-- Contact -->
@@ -86,25 +87,23 @@
 						height: 100%;
 					}
 				</style>
-				<!-- <div id="map"></div> -->
+				<div id="map" style="height: 500px"></div>
 				<script>
-					var map;
-
+					var map, center, marker;
+					center =  { lat: 36.216346, lng: -81.682111 };
 					function initMap() {
 						map = new google.maps.Map(document.getElementById('map'), {
-							center: {
-								lat: 36.216346,
-								lng: -81.682111
-							},
+							center: center,
 							zoom: 15
-						})
+						});
+						marker = new google.maps.Marker({position: center, map: map})
 					}
 				</script>
-				<ul class="icons align-center">
+				<ul class="icons align-center" style="padding-top: 2em;">
 					<li><a href="https://linkedin.com/in/kevin-kamto" class="icon fa-linkedin"><span
 								class="label">LinkedIn</span></a></li>
-					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<!-- <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li> -->
+					<!-- <li><a href="" class="icon fa-instagram"><span class="label">Instagram</span></a></li> -->
 					<li><a href="https://github.com/tresor-llc" class="icon fa-github"><span
 								class="label">GitHub</span></a></li>
 				</ul>
@@ -116,7 +115,7 @@
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p>&copy; Made with care by <a href="https://qgbyipzk.pw/">Trésor</a>.
+			<p>&copy; Made with care by <a href="http://qgbyipzk.pw/">Trésor</a>.
 				<a href="https://github.com/tresor-llc" class="icon fa-github"></a></p>
 		</footer>
 

@@ -11,7 +11,6 @@ const host = `${address}:${port}`;
 if (process.env.NODE_ENV == 'development') {
     console.log("Running in " + process.env.NODE_ENV + " mode")
     require('./src/server'); //Loads up Server
-
 } else
 
 if (process.env.NODE_ENV == 'production') {

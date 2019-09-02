@@ -37,7 +37,7 @@ function serve(initPort, initHost) {
 init()
 if (process.env.NODE_ENV == 'production'){
     serve("80")
-} ele 
+} else 
 {
     serve()
 }

@@ -3,18 +3,24 @@
  * Everything starts from here...
  */
 
-let port = process.env.PORT || '2000';
-let address = process.env.PUBLIC_URL || '127.0.0.1';
+ 
+let node_env = process.env.NODE_ENV || 'development';
 
-const host = `${address}:${port}`;
 
-if (process.env.NODE_ENV == 'development') {
-    console.log("Running in " + process.env.NODE_ENV + " mode")
-    require('./src/server'); //Loads up Server
-} else
+function initApp(node_env) {
 
-if (process.env.NODE_ENV == 'production') {
+     if (node_env == 'production') {
+    
+        console.log("Running in " + node_env + " mode")
+        let server = require(`./src/server`);
+    
+    } else {
+        node_env == 'development'
+        console.log("Running in " + node_env + " mode")
+        require('./src/server'); //Loads up Server
+    }
 
-    console.log("Running in " + process.env.NODE_ENV + " mode")
-    let server = require(`./src/server`);
 }
+
+//Project entry point
+initApp(node_env);

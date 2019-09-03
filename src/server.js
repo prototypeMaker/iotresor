@@ -20,10 +20,10 @@ function init() {
 function serve(initPort, initHost) {
     
     // 
-    app.get('/', (req, res) => {
-        res.sendFile(path.join(publicPath, "index.html"))
-        // res.sendFile('index.html', { root: __dirname });
-    })
+    // app.get('/', (req, res) => {
+    //     res.sendFile(path.join(publicPath, "index.html"))
+    //     // res.sendFile('index.html', { root: __dirname });
+    // })
     
     let port = process.env.PORT || initPort || `3003`;
     let address = process.env.HOST || initHost || 'localhost';

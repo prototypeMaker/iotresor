@@ -14,7 +14,8 @@ function initApp(node_env) {
         console.log("Running in " + node_env + " mode")
         let server = require(`./src/server`);
     
-    } else {
+    } else
+    {
         node_env == 'development'
         console.log("Running in " + node_env + " mode")
         require('./src/server'); //Loads up Server

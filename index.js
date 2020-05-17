@@ -1,27 +1,43 @@
-/**
- * Application Entry Point
- * Everything starts from here...
- */
+//Express setup
+const Express = require('express');
+const app = new Express();
+const path = require('path');
+const logger = require('morgan');
 
- 
-let node_env = process.env.NODE_ENV || 'development';
+//Written in functional programming paradigm -- declarative
 
-
-function initApp(node_env) {
-
-     if (node_env == 'production') {
+function init() {
     
-        console.log("Running in " + node_env + " mode")
-        let server = require(`./src/server`);
-    
-    } else
-    {
-        node_env == 'development'
-        console.log("Running in " + node_env + " mode")
-        require('./src/server'); //Loads up Server
-    }
+    publicPath = path.join(__dirname, "..", "/");
 
+    // log requests
+    app.use(logger('dev'));
+    
+    // set static options
+    app.use(Express.static(publicPath));
 }
 
-//Project entry point
-initApp(node_env);
+function serve(initPort, initHost) {
+    
+    // 
+    // app.get('/', (req, res) => {
+    //     res.sendFile(path.join(publicPath, "index.html"))
+    //     // res.sendFile('index.html', { root: __dirname });
+    // })
+    
+    let port = process.env.PORT || initPort || `3003`;
+    let address = process.env.HOST || initHost || 'localhost';
+    const host = `${address}:${port}`;
+    // Listens on a port
+    app.listen(port);
+    console.log(`[Server] live on ${host}`)
+}
+
+// Runtime
+init()
+if (process.env.NODE_ENV == 'production'){
+    serve("80")
+} else 
+{
+    serve()
+}

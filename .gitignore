@@ -1,4 +1,5 @@
 #Ignore these files
 
 /node_modules
-*/package-json
+/package-json
+/.cache
